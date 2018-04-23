@@ -66,7 +66,7 @@ export class TableService {
                 (onPageChange)="onPageChange($event)" [rowsPerPageOptions]="rowsPerPageOptions" *ngIf="paginator && (paginatorPosition === 'top' || paginatorPosition =='both')"
                 [templateLeft]="paginatorLeftTemplate" [templateRight]="paginatorRightTemplate" [dropdownAppendTo]="paginatorDropdownAppendTo"></p-paginator>
             
-            <div class="ui-table-wrapper" *ngIf="!scrollable">
+            <div class="ui-table-wrapper" *ngIf="!scrollable" [style.min-height]="minBodyHeight">
                 <table #table>
                     <ng-container *ngTemplateOutlet="colGroupTemplate; context {$implicit: columns}"></ng-container>
                     <thead class="ui-table-thead">
@@ -79,7 +79,7 @@ export class TableService {
                 </table>
             </div>
 
-            <div class="ui-table-scrollable-wrapper" *ngIf="scrollable">
+            <div class="ui-table-scrollable-wrapper" *ngIf="scrollable" [style.min-height]="minBodyHeight">
                <div class="ui-table-frozen-view" *ngIf="frozenColumns||frozenBodyTemplate" [pScrollableView]="frozenColumns" [frozen]="true" [ngStyle]="{width: frozenWidth}" [scrollHeight]="scrollHeight"></div>
                <div [pScrollableView]="columns" [frozen]="false" [scrollHeight]="scrollHeight"></div>
             </div>
@@ -110,6 +110,8 @@ export class Table implements OnInit, AfterContentInit {
     @Input() style: any;
 
     @Input() styleClass: string;
+
+    @Input() minBodyHeight: string;
 
     @Input() paginator: boolean;
 
