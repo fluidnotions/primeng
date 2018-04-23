@@ -7,6 +7,8 @@
 /components
 /resources
 /aot
+/.ng_pkg_build
+*.tar
 
 # dependencies
 /node_modules

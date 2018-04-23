@@ -61,3 +61,24 @@ Configure required styles at the styles section, example below uses the Omega th
 ```
 
 That is all, you may now import PrimeNG components, for a working example visit the [PrimeNG CLI QuickStart sample](https://github.com/primefaces/primeng-quickstart-cli) at GitHub.
+
+###Extentions
+
+Used to build as lib - after edits (favour addition rather then edit if possible so upstream merges aren't a nightmare)
+name changed to "name": "@fluidnotions/primeng"
+
+https://www.npmjs.com/package/ng-packagr
+see public_api.ts for exports
+
+bundle lib with yarn build:lib
+
+primeng-resources copied to assets
+
+```
+"styles": [
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "./assets/primeng-resources/primeng.css",
+        "./assets/primeng-resources/themes/omega/theme.css",
+        "styles.scss"
+      ],
+```
